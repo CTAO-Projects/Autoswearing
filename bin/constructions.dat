@@ -1,0 +1,9 @@
+//Это файл конструкций-шаблонов на основе которых программа будет составлять стихи
+
+//Есенинские шаблоны
+#BEGIN
+Не <verb: imperative>, дорогой, и не <verb: imperative>
+<noun: Accusative upperfirst> <verb: imperative> как <noun: Accusative> за <noun: Accusative>,
+<verb: imperative upperfirst> всех и каждого на <noun: Accusative>,
+Чтоб тебя не <verb: ThirdPerson Past plural> в <noun: Accusative>
+#END
