@@ -115,7 +115,10 @@ type
                 1: Result.Value := Plural ? self.Value.Left(self.Value.Length - 1) + 'ев' : self.Value.Left(self.Value.Length - 1) + 'я';
                 2: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ьёв' : self.Value.Left(self.Value.Length - 2) + 'ья';
                 3: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'щ' : self.Value.Left(self.Value.Length - 2) + 'ще';
-                4: Result.Value := Plural ? (self.Value.EndsWith('й') ? self.Value.Left(self.Value.Length - 1) + 'и' : self.Value.Left(self.Value.Length - 1) + 'ей') : (self.Value.EndsWith('й') ? self.Value : self.Value.Left(self.Value.Length - 1) + 'я');
+                4: Result.Value :=
+                Plural
+                ? (self.Value.EndsWith('й') ? self.Value.Left(self.Value.Length - 1) + 'и' : self.Value.Left(self.Value.Length - 1) + 'ей')
+                : (self.Value.EndsWith('й') ? self.Value : self.Value.Left(self.Value.Length - 1) + 'я');
               end;
               exit;
             end;
