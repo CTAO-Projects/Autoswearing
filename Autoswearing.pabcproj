@@ -2,18 +2,18 @@
 <Project FileVersion="2" Name="Autoswearing" MainFile="Autoswearing.pas" OutputFileName="Autoswearing.exe" OutputDirectory="bin" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="False" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
   <Items>
     <Item Type="SourceFile" Name="Autoswearing.pas" Path="Autoswearing.pas" />
-    <Item Type="SourceFile" Name="Word.pas" Path="Word.pas" />
     <Item Type="SourceFile" Name="Case.pas" Path="Case.pas" />
-    <Item Type="SourceFile" Name="Gender.pas" Path="Gender.pas" />
-    <Item Type="SourceFile" Name="Noun.pas" Path="Noun.pas" />
-    <Item Type="SourceFile" Name="Modifiers.pas" Path="Modifiers.pas" />
+    <Item Type="SourceFile" Name="Conjugation.pas" Path="Conjugation.pas" />
     <Item Type="SourceFile" Name="Declension.pas" Path="Declension.pas" />
+    <Item Type="SourceFile" Name="Dictionary.pas" Path="Dictionary.pas" />
+    <Item Type="SourceFile" Name="Gender.pas" Path="Gender.pas" />
+    <Item Type="SourceFile" Name="Modifiers.pas" Path="Modifiers.pas" />
+    <Item Type="SourceFile" Name="Noun.pas" Path="Noun.pas" />
     <Item Type="SourceFile" Name="Person.pas" Path="Person.pas" />
+    <Item Type="SourceFile" Name="Time.pas" Path="Time.pas" />
     <Item Type="SourceFile" Name="Swear.pas" Path="Swear.pas" />
     <Item Type="SourceFile" Name="Verb.pas" Path="Verb.pas" />
-    <Item Type="SourceFile" Name="Time.pas" Path="Time.pas" />
-    <Item Type="SourceFile" Name="Conjugation.pas" Path="Conjugation.pas" />
-    <Item Type="SourceFile" Name="Dictionary.pas" Path="Dictionary.pas" />
+    <Item Type="SourceFile" Name="Word.pas" Path="Word.pas" />
     <Item Type="SourceFile" Name="WordShell.pas" Path="WordShell.pas" />
     <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
   </Items>
