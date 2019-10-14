@@ -12,3 +12,7 @@
 <noun: upperfirst> <noun: Genitive> <verb: ThirdPerson Present> в <noun: Prepositional>,
 А с <noun: Genitive> <verb: ThirdPerson Present> <noun: Masculine>.
 #END
+
+#BEGIN
+Я <verb: FirstPerson Masculine Past>, меня <verb SecondPerson Past plural>
+#END

@@ -22,6 +22,7 @@ uses System.Text;
 
 begin
   System.Environment.CurrentDirectory := System.IO.Path.GetDirectoryName(GetEXEFileName);
+  Console.Title := 'Autoswearing';
   Dictionary.Init();
   Swear.Init();
   while true do
