@@ -92,7 +92,7 @@ type
     
     public static function Generate(): array of string;
     begin
-      Result := _swears[_swears.Length - 1].GetVerse();
+      Result := _swears[PABCSystem.Random(_swears.Length)].GetVerse();
     end;
   end;
 

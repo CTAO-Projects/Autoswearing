@@ -61,7 +61,10 @@ type
         begin
           case newcase of
             Autoswearing.Case.Nominative: exit;
-            Autoswearing.Case.Genitive: Result.Value := Plural ? self.Value.Left(self.Value.Length - 1) : (self.Value.Left(self.Value.Length - 1) + 'ы');
+            Autoswearing.Case.Genitive: Result.Value := 
+              self.Value[self.Value.Length - 1] = 'к'
+              ? (Plural ? self.Value.Left(self.Value.Length - 2) + 'ок' : (self.Value.Left(self.Value.Length - 1) + 'и'))
+              : (Plural ? self.Value.Left(self.Value.Length - 1) : (self.Value.Left(self.Value.Length - 1) + 'ы'));
             Autoswearing.Case.Dative: Result.Value := Plural ? (self.Value.Left(self.Value.Length - 1) + 'ам') : (self.Value.Left(self.Value.Length - 1) + 'е');
             Autoswearing.Case.Accusative: Result.Value := Plural ? self.Value.Left(self.Value.Length - 1) : (self.Value.Left(self.Value.Length - 1) + 'у');
             Autoswearing.Case.Ablative: Result.Value := Plural ? (self.Value.Left(self.Value.Length - 1) + 'ами') : (self.Value.Left(self.Value.Length - 1) + 'ой');
@@ -112,7 +115,7 @@ type
                 1: Result.Value := Plural ? self.Value.Left(self.Value.Length - 1) + 'ев' : self.Value.Left(self.Value.Length - 1) + 'я';
                 2: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ьёв' : self.Value.Left(self.Value.Length - 2) + 'ья';
                 3: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'щ' : self.Value.Left(self.Value.Length - 2) + 'ще';
-                4: Result.Value := Plural ? self.Value.Left(self.Value.Length - 1) + 'ей' : self.Value.Left(self.Value.Length - 1) + 'я';
+                4: Result.Value := Plural ? (self.Value.EndsWith('й') ? self.Value.Left(self.Value.Length - 1) + 'и' : self.Value.Left(self.Value.Length - 1) + 'ей') : (self.Value.EndsWith('й') ? self.Value : self.Value.Left(self.Value.Length - 1) + 'я');
               end;
               exit;
             end;

@@ -19,7 +19,7 @@ type
           var ind1 := s.IndexOf('(');
           var ind2 := s.IndexOf(')');
           var value := s.Substring(0, ind1 - 1).Trim;
-          var options := s.Substring(ind1 + 1, ind2 - ind1 - 2).ToWords(splitters).ConvertAll(x -> x.ToLower);
+          var options := s.Substring(ind1 + 1, ind2 - ind1 - 1).ToWords(splitters).ConvertAll(x -> x.ToLower);
           var tp := options.First;
           case tp of
             'noun':

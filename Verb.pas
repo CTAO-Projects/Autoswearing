@@ -62,7 +62,7 @@ type
               case person of
                 Autoswearing.Person.FirstPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ем' : self.Value.Left(self.Value.Length - 2) + 'ю';
                 Autoswearing.Person.SecondPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ете' : self.Value.Left(self.Value.Length - 2) + 'ешь';
-                Autoswearing.Person.ThirdPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ют' : self.Value.Left(self.Value.Length - 2) + 'ет';
+                Autoswearing.Person.ThirdPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ют' : self.Value.Left(self.Value.Length - 3) + 'ет';
               end;
             end;
             Autoswearing.Time.Future:
@@ -93,7 +93,7 @@ type
               case person of
                 Autoswearing.Person.FirstPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'им' : self.Value.Left(self.Value.Length - 2) + 'ю';
                 Autoswearing.Person.SecondPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ите' : self.Value.Left(self.Value.Length - 2) + 'ишь';
-                Autoswearing.Person.ThirdPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ят' : self.Value.Left(self.Value.Length - 2) + 'ит';
+                Autoswearing.Person.ThirdPerson: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'ят' : self.Value.Left(self.Value.Length - 3) + 'ит';
               end;
             end;
             Autoswearing.Time.Future:
@@ -110,11 +110,14 @@ type
       if reflexive then Result.Value := Result.Value + 'ся';
     end;
     
-    public function GetImperative(reflexive: boolean): Verb;
+    public function GetImperative(reflexive: boolean; gender: Autoswearing.Gender; person: Autoswearing.Person): Verb;
     begin
       if reflexive and PerfectForm then raise new ArgumentException('В данной грамматике невозможно создание возвратных форм глаголов совершенного вида');
       Result := Verb(Clone());
       if Imperative then exit;
+      case Conjugation of
+        //Autoswearing.Conjugation.FirstConjugation:
+      end;
       //todo make imperative verbs
     end;
     

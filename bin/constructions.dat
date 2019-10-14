@@ -7,3 +7,8 @@
 <verb: imperative upperfirst> всех и каждого на <noun: Accusative>,
 Чтоб тебя не <verb: ThirdPerson Past plural> в <noun: Accusative>
 #END
+
+#BEGIN
+<noun: upperfirst> <noun: Genitive> <verb: ThirdPerson Present> в <noun: Prepositional>,
+А с <noun: Genitive> <verb: ThirdPerson Present> <noun: Masculine>.
+#END

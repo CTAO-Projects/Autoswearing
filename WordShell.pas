@@ -43,17 +43,23 @@ type
           var nouns := Dictionary.This.Where(x -> x is Noun).Select(x -> x as Noun).ToArray();
           var anyplural := Modifiers.Contains('plural');
           var anycase := Modifiers.Any(x -> casenames.Contains(x));
-          if anyplural or anycase then
+          var anygender := Modifiers.Any(x -> gendernames.Contains(x));
+          if anyplural or anycase or anygender then
           begin
             var &case := Nominative;
             var plural := false;
             if anyplural then plural := true;
             if anycase then &case := Autoswearing.Case(Autoswearing.Case.Parse(typeof(Autoswearing.Case), Modifiers.First(x -> x in casenames)));
-            Result := plural ? nouns[PABCSystem.Random(nouns.Length - 1)].ConvertPluralCase(&case).Value : nouns[PABCSystem.Random(nouns.Length - 1)].ConvertCase(&case).Value;
+            if anygender then
+            begin
+              var gndr := Autoswearing.Gender(Enum.Parse(typeof(Autoswearing.Gender), Modifiers.First(x -> x in gendernames)));
+              nouns := nouns.Where(x -> x.Gender = gndr).ToArray();
+            end;
+            Result := plural ? nouns[PABCSystem.Random(nouns.Length)].ConvertPluralCase(&case).Value : nouns[PABCSystem.Random(nouns.Length)].ConvertCase(&case).Value;
           end
           else
           begin
-            Result := nouns[PABCSystem.Random(nouns.Length - 1)].Value;
+            Result := nouns[PABCSystem.Random(nouns.Length)].Value;
           end;
         end;
         'verb':
@@ -68,7 +74,12 @@ type
           var anyreflexive := Modifiers.Contains('reflexive');
           if anyimperative then
           begin
-            Result := verbs.Where(x -> not x.PerfectForm).ToArray()[PABCSystem.Random(verbs.Length - 1)].GetImperative(anyreflexive).Value;
+            var _gender := Gender(PABCSystem.Random(3));
+            var _person := Person(PABCSystem.Random(3));
+            if anygender then _gender := Gender(Enum.Parse(typeof(Gender), Modifiers.First(x -> gendernames.Contains(x))));
+            if anyperson then _person := Person(Enum.Parse(typeof(Person), Modifiers.First(x -> personnames.Contains(x))));
+            var notperfects := verbs.Where(x -> not x.PerfectForm).ToArray();
+            Result := notperfects[PABCSystem.Random(notperfects.Length)].GetImperative(anyreflexive, _gender, _person).Value;
           end
           else if anygender or anyperson or anytime or anyplural then
           begin
@@ -81,12 +92,12 @@ type
             if anygender then _gender := Gender(Enum.Parse(typeof(Gender), Modifiers.First(x -> gendernames.Contains(x))));
             if anyperson then _person := Person(Enum.Parse(typeof(Person), Modifiers.First(x -> personnames.Contains(x))));
             if _perfect then verbs := verbs.Where(x -> x.PerfectForm).ToArray();
-            Result := verbs[verbs.Length - 1].GetVerb(plural, _gender, _person, _time, anyreflexive).Value;
+            Result := verbs[PABCSystem.Random(verbs.Length)].GetVerb(plural, _gender, _person, _time, anyreflexive).Value;
           end
           else
           begin
             if anyperfect then verbs := verbs.Where(x -> x.PerfectForm).ToArray();
-            Result := verbs[verbs.Length - 1].Value;
+            Result := verbs[PABCSystem.Random(verbs.Length)].Value;
           end;
         end;
       end;
