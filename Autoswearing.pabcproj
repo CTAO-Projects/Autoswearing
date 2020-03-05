@@ -15,6 +15,7 @@
     <Item Type="SourceFile" Name="Verb.pas" Path="Verb.pas" />
     <Item Type="SourceFile" Name="Word.pas" Path="Word.pas" />
     <Item Type="SourceFile" Name="WordShell.pas" Path="WordShell.pas" />
+    <Item Type="SourceFile" Name="ConsoleMethods.pas" Path="ConsoleMethods.pas" />
     <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
   </Items>
 </Project>
