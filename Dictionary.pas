@@ -56,6 +56,8 @@ type
                 'overconjugation': current.Conjugation := Conjugation.OverConjugation;
                 
                 'perfect': current.PerfectForm := true;
+                  
+                'ensoulable': current.Ensoulable := true;
               end;
               
               lst.Add(current);

@@ -7,6 +7,7 @@ type
     public auto property Person: Autoswearing.Person;
     public auto property Time: Autoswearing.Time;
     public auto property Conjugation: Autoswearing.Conjugation;
+    public auto property Ensoulable: boolean;
     public auto property Plural: boolean;
     public auto property Infinitive: boolean;
     public auto property PerfectForm: boolean;
@@ -14,23 +15,17 @@ type
     
     private static vowels := new string[10]('а', 'о', 'у', 'ы', 'э', 'я', 'ё', 'ю', 'и', 'е');
     
-    private static function Костыль1(s: string; v: array of string): boolean;
-    begin
-      Result := false;
-      for var i := 0 to v.Length - 1 do
-      begin
-        if s.StartsWith(v[i]) then
-        begin
-          Result := true;
-          exit;
-        end;
-      end;
-    end;
-    
     public static function MakeFuture(s: string; perfect: boolean): string;
     begin
-      var needhard := Костыль1(s, vowels);
+      var needhard := vowels.Any(x -> s.StartsWith(x));
       if needhard then Result := 'съ' + s else Result := 'с' + s;
+    end;
+    
+    public function GetReflexive(): Verb;
+    begin
+      if not Ensoulable then raise new ArgumentException('Нельзя образовывать рефлексив из глагола, который не может быть приминён к одушевлённому слову');
+      Result := Verb(Clone());
+      Result.Value := Result.Value + 'ся';
     end;
     
     public function GetVerb(plural: boolean; gender: Autoswearing.Gender; Person: Autoswearing.Person; time: Autoswearing.Time; reflexive: boolean): Verb;
@@ -107,17 +102,37 @@ type
           end;
         end;
       end;
-      if reflexive then Result.Value := Result.Value + 'ся';
+      if reflexive then Result := Result.GetReflexive();
     end;
     
     public function GetImperative(reflexive: boolean; gender: Autoswearing.Gender; person: Autoswearing.Person): Verb;
     begin
       if reflexive and PerfectForm then raise new ArgumentException('В данной грамматике невозможно создание возвратных форм глаголов совершенного вида');
       Result := Verb(Clone());
-      if Imperative then exit;
-      case Conjugation of
+      
+      //case Conjugation of
         //Autoswearing.Conjugation.FirstConjugation:
+        begin
+          if Result.Value.Length > 3 then
+          begin
+            if (Result.Value.StartsWith('думать') or Result.Value.StartsWith('дать')) then Result.Value := Plural ? Result.Value.Left(self.Value.Length - 2) + 'и' : Result.Value.Left(self.Value.Length - 2) + 'ите'
+            else Result.Value := Plural ? Result.Value.Left(self.Value.Length - 3) + 'и' : Result.Value.Left(self.Value.Length - 3) + 'ите';
+          end;
+        end;
+      //end;
+      
+      
+      if Result.Value.Length > 3 then
+      begin
+        if Result.Value.Right(4) = 'шите' then Result.Value := Result.Value.Left(Result.Value.Length - 4) + 'шьте';
+        if Result.Value.Right(4) = 'аите' then Result.Value := Result.Value.Left(Result.Value.Length - 4) + 'айте';
+        if Result.Value.Right(4) = 'чите' then Result.Value := Result.Value.Left(Result.Value.Length - 4) + 'чьте';
       end;
+      
+      //if Imperative then exit;
+      //case Conjugation of
+        //Autoswearing.Conjugation.FirstConjugation:
+      //end;
       //todo make imperative verbs
     end;
     

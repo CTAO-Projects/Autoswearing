@@ -14,5 +14,9 @@
 #END
 
 #BEGIN
-Я <verb: FirstPerson Masculine Past>, меня <verb: SecondPerson Past plural>
+Я <verb: FirstPerson Masculine Past ensoulable>, меня <verb: SecondPerson Past plural>
+#END
+
+#BEGIN
+ПОРА <verb: reflexive caps>!
 #END

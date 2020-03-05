@@ -1,5 +1,10 @@
 //word (noun, склонение, род)
 //word (verb, спряжение, form)
+
+//for verbs:
+//perfect - совершенный вид (если не указывать, глагол считается несовершенного вида)
+//ensoulable - глагол, который применим к одушевлённым словам
+
 хуй (noun, SecondDeclension,  Masculine)
 член (noun, SecondDeclension,  Masculine)
 еблан (noun, SecondDeclension,  Masculine)
@@ -24,17 +29,17 @@
 очко (noun, SecondDeclension, Neuter)
 говно (noun, SecondDeclension, Neuter)
 блядь (noun, ThirdDeclension, Feminine)
-блядище (noun, SecondDeclension, Masculine)
+блядище (noun, SecondDeclension, Neuter)
 
 
 отпиздить (verb, SecondConjugation, perfect)
-пиздить (verb, SecondConjugation)
-ебать (verb, FirstConjugation)
-сосать (verb, FirstConjugation)
-давать (verb, FirstConjugation)
-переебать (verb, FirstConjugation)
+пиздить (verb, SecondConjugation, ensoulable)
+ебать (verb, FirstConjugation, ensoulable)
+сосать (verb, FirstConjugation, ensoulable)
+дать (verb, FirstConjugation, perfect)
+переебать (verb, FirstConjugation, perfect)
 ебашить (verb, SecondConjugation)
-хуячить (verb, SecondConjugation)
+хуячить (verb, SecondConjugation, ensoulable)
 мудошить (verb, SecondConjugation)
 послать (verb, FirstConjugation, perfect)
 выебать (verb, FirstConjugation, perfect)

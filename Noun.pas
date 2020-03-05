@@ -80,7 +80,7 @@ type
             if Value.EndsWith('ий') then tp := 1
             else if Value.EndsWith('ей') then tp := 2
             else if (Value.EndsWith('ко')) or (Value.EndsWith('ще')) or (Value.EndsWith('ки')) or (Value.EndsWith('ща')) then tp := 3
-            else if (Value.EndsWith('ь')) or (Value.EndsWith('й')) then tp := 4;
+            else if (Value.EndsWith('ь')) or (Value.EndsWith('й') or Value.EndsWith('ен')) then tp := 4;
           end else tp := -1;
           case newcase of
             Autoswearing.Case.Nominative: exit;
@@ -117,8 +117,8 @@ type
                 3: Result.Value := Plural ? self.Value.Left(self.Value.Length - 2) + 'щ' : self.Value.Left(self.Value.Length - 2) + 'ще';
                 4: Result.Value :=
                 Plural
-                ? (self.Value.EndsWith('й') ? self.Value.Left(self.Value.Length - 1) + 'и' : self.Value.Left(self.Value.Length - 1) + 'ей')
-                : (self.Value.EndsWith('й') ? self.Value : self.Value.Left(self.Value.Length - 1) + 'я');
+                ? (self.Value.EndsWith('й') or self.Value.EndsWith('ен') ? self.Value.Left(self.Value.Length - 1) + 'и' : self.Value.Left(self.Value.Length - 1) + 'ей')
+                : (self.Value.EndsWith('й') or self.Value.EndsWith('ен') ? self.Value : self.Value.Left(self.Value.Length - 1) + 'я');
               end;
               exit;
             end;

@@ -65,6 +65,13 @@ type
         'verb':
         begin
           var verbs := Dictionary.This.Where(x -> x is Verb).Select(x -> x as Verb).ToArray();
+          
+          if Modifiers.Length = 0 then
+          begin
+            Result := verbs[PABCSystem.Random(verbs.Length)].Value;
+            exit;
+          end;
+          
           var anyplural := Modifiers.Contains('plural');
           var anyimperative := Modifiers.Contains('imperative');
           var anytime := Modifiers.Any(x -> timenames.Contains(x));
@@ -72,6 +79,7 @@ type
           var anygender := Modifiers.Any(x -> gendernames.Contains(x));
           var anyperfect := Modifiers.Contains('perfect');
           var anyreflexive := Modifiers.Contains('reflexive');
+          var anyensoulable := Modifiers.Contains('ensoulable');
           if anyimperative then
           begin
             var _gender := Gender(PABCSystem.Random(3));
@@ -79,6 +87,8 @@ type
             if anygender then _gender := Gender(Enum.Parse(typeof(Gender), Modifiers.First(x -> gendernames.Contains(x))));
             if anyperson then _person := Person(Enum.Parse(typeof(Person), Modifiers.First(x -> personnames.Contains(x))));
             var notperfects := verbs.Where(x -> not x.PerfectForm).ToArray();
+            if anyreflexive then verbs := verbs.Where(x -> (not x.PerfectForm) and x.Ensoulable).ToArray();
+            if anyensoulable then verbs := verbs.Where(x -> x.Ensoulable).ToArray();
             Result := notperfects[PABCSystem.Random(notperfects.Length)].GetImperative(anyreflexive, _gender, _person).Value;
           end
           else if anygender or anyperson or anytime or anyplural then
@@ -92,12 +102,22 @@ type
             if anygender then _gender := Gender(Enum.Parse(typeof(Gender), Modifiers.First(x -> gendernames.Contains(x))));
             if anyperson then _person := Person(Enum.Parse(typeof(Person), Modifiers.First(x -> personnames.Contains(x))));
             if _perfect then verbs := verbs.Where(x -> x.PerfectForm).ToArray();
+            if anyreflexive then verbs := verbs.Where(x -> (not x.PerfectForm) and x.Ensoulable).ToArray();
+            if anyensoulable then verbs := verbs.Where(x -> x.Ensoulable).ToArray();
             Result := verbs[PABCSystem.Random(verbs.Length)].GetVerb(plural, _gender, _person, _time, anyreflexive).Value;
           end
-          else
+          else if anyperfect then
           begin
-            if anyperfect then verbs := verbs.Where(x -> x.PerfectForm).ToArray();
+            if anyensoulable then verbs := verbs.Where(x -> x.Ensoulable).ToArray();
+            verbs := verbs.Where(x -> x.PerfectForm).ToArray();
             Result := verbs[PABCSystem.Random(verbs.Length)].Value;
+          end
+          else
+          if anyreflexive then 
+          begin
+            if anyensoulable then verbs := verbs.Where(x -> x.Ensoulable).ToArray();
+            verbs := verbs.Where(x -> (not x.PerfectForm) and x.Ensoulable).ToArray();
+            Result := verbs[PABCSystem.Random(verbs.Length)].GetReflexive().Value;
           end;
         end;
       end;
