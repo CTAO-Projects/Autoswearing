@@ -13,7 +13,7 @@
             <Keywords name="Numbers, suffix1"></Keywords>
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range"></Keywords>
-            <Keywords name="Operators1"> &lt; &gt; : ( ) ,</Keywords>
+            <Keywords name="Operators1">&lt; &gt; : ( ) ,</Keywords>
             <Keywords name="Operators2"></Keywords>
             <Keywords name="Folders in code1, open">#BEGIN</Keywords>
             <Keywords name="Folders in code1, middle"></Keywords>
@@ -25,39 +25,39 @@
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
             <Keywords name="Keywords1">verb&#x000D;&#x000A;noun</Keywords>
-            <Keywords name="Keywords2">imperative&#x000D;&#x000A;FirstDeclension&#x000D;&#x000A;SecondDeclension&#x000D;&#x000A;ThirdDeclension&#x000D;&#x000A;OverDeclension&#x000D;&#x000A;FirstConjugation&#x000D;&#x000A;SecondConjugation&#x000D;&#x000A;OverConjugation</Keywords>
+            <Keywords name="Keywords2">imperative&#x000D;&#x000A;FirstDeclension&#x000D;&#x000A;SecondDeclension&#x000D;&#x000A;ThirdDeclension&#x000D;&#x000A;OverDeclension&#x000D;&#x000A;FirstConjugation&#x000D;&#x000A;SecondConjugation&#x000D;&#x000A;OverConjugation&#x000D;&#x000A;reflexive</Keywords>
             <Keywords name="Keywords3">nominative&#x000D;&#x000A;genitive&#x000D;&#x000A;dative&#x000D;&#x000A;accusative&#x000D;&#x000A;ablative&#x000D;&#x000A;prepositional&#x000D;&#x000A;firstperson&#x000D;&#x000A;secondperson&#x000D;&#x000A;thirdperson&#x000D;&#x000A;perfect</Keywords>
-            <Keywords name="Keywords4">singular&#x000D;&#x000A;plural</Keywords>
+            <Keywords name="Keywords4">singular&#x000D;&#x000A;plural&#x000D;&#x000A;ensoulable</Keywords>
             <Keywords name="Keywords5">masculine&#x000D;&#x000A;feminine&#x000D;&#x000A;neuter</Keywords>
             <Keywords name="Keywords6">upperfirst&#x000D;&#x000A;caps</Keywords>
-            <Keywords name="Keywords7"></Keywords>
+            <Keywords name="Keywords7">Past&#x000D;&#x000A;Present&#x000D;&#x000A;Future</Keywords>
             <Keywords name="Keywords8"></Keywords>
             <Keywords name="Delimiters"></Keywords>
         </KeywordLists>
         <Styles>
-            <WordsStyle name="DEFAULT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="COMMENTS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="LINE COMMENTS" fgColor="008000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="NUMBERS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DEFAULT" fgColor="000000" bgColor="FFFFFF" fontName="&#x7630;&#x05E4;" fontStyle="0" nesting="0" />
+            <WordsStyle name="COMMENTS" fgColor="000000" bgColor="FFFFFF" fontName="no" fontStyle="0" nesting="0" />
+            <WordsStyle name="LINE COMMENTS" fgColor="008000" bgColor="FFFFFF" fontName="MRU" fontStyle="0" nesting="0" />
+            <WordsStyle name="NUMBERS" fgColor="000000" bgColor="FFFFFF" fontName="0" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS1" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
-            <WordsStyle name="KEYWORDS2" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS2" fgColor="FF0000" bgColor="FFFFFF" fontName="0" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS3" fgColor="666600" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS4" fgColor="00AAAA" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS5" fgColor="FF0080" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS6" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="5" nesting="0" />
-            <WordsStyle name="KEYWORDS7" fgColor="800000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
-            <WordsStyle name="KEYWORDS8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="OPERATORS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="FOLDER IN CODE1" fgColor="804000" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS4" fgColor="00AAAA" bgColor="FFFFFF" fontName="0" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS5" fgColor="FF0080" bgColor="FFFFFF" fontName="-1" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS6" fgColor="000000" bgColor="FFFFFF" fontName="yes" fontStyle="5" nesting="0" />
+            <WordsStyle name="KEYWORDS7" fgColor="800000" bgColor="FFFFFF" fontName="&#x73E0;&#x05F1;" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS8" fgColor="000000" bgColor="FFFFFF" fontName="&#x8070;&#x02EE;" fontStyle="0" nesting="0" />
+            <WordsStyle name="OPERATORS" fgColor="000000" bgColor="FFFFFF" fontName="&#x8610;&#x02EE;" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE1" fgColor="804000" bgColor="FFFFFF" fontName="&#x0003;&#x0004;" fontStyle="1" nesting="0" />
             <WordsStyle name="FOLDER IN CODE2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS1" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS3" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="DELIMITERS4" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS4" fgColor="000000" bgColor="FFFFFF" fontName="&#x070A;&#x0001;" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS5" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS6" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
-            <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" fontName="&#x000C;" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
         </Styles>
     </UserLang>
