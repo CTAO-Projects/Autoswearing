@@ -18,6 +18,7 @@ type
     begin
       Result := Noun(Clone());
       if Result.Plural then exit;
+      Result.Plural := true;
       case Declension of
         Autoswearing.Declension.FirstDeclension: Result.Value := self.Value.Left(self.Value.Length - 1) + 'ы';
         Autoswearing.Declension.SecondDeclension:
@@ -25,15 +26,16 @@ type
           var tp := 0; //нулевое окончание
           if Gender = Autoswearing.Gender.Masculine then
           begin
-            if Value.EndsWith('ий') then tp := 1
+            if Value.EndsWith('ий') or (Value[Value.Length - 2] = 'к') or (Value[Value.Length - 2] = 'х') then tp := 4
             else if Value.EndsWith('ей') then tp := 2
             else if (Value.EndsWith('ко')) or (Value.EndsWith('ще')) or (Value.EndsWith('ки')) or (Value.EndsWith('ща')) then tp := 3
             else if (Value.EndsWith('ь')) or (Value.EndsWith('й')) then tp := 4;
-          end else tp := -1;
+          end else tp := 4;
           case tp of
             -1: Result.Value := self.Value.Left(self.Value.Length - 1) + 'а';
-            0: Result.Value := self.Value.Left(self.Value.Length - 1) + 'ы';
-            1, 4: Result.Value := self.Value.Left(self.Value.Length - 1) + 'и';
+            0: Result.Value := self.Value.Left(self.Value.Length) + 'ы';
+            1: Result.Value := self.Value + 'и';
+            4: Result.Value := self.Value.Left(self.Value.Length - 1) + 'и';
             2: Result.Value := self.Value.Left(self.Value.Length - 2) + 'ьи';
             3: Result.Value := self.Value.Left(self.Value.Length - 2) + 'щи';
           end;
@@ -45,7 +47,6 @@ type
     public function ConvertPluralCase(newcase: Autoswearing.Case): Noun;
     begin
       Result := Noun(Clone());
-      Result.Plural := true;
       if newcase = Autoswearing.Case.Nominative then Result := Result.ConvertToPlural()
       else Result := Result.ConvertCase(newcase);
     end;
